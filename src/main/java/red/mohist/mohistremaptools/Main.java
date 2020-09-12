@@ -87,46 +87,28 @@ public class Main {
         System.out.println("==========================================");
         System.out.println("开始合并CL数据");
         StringBuilder sb = new StringBuilder();
-        spigot_cl.entrySet().forEach(clmap -> {
-            String nms = clmap.getKey();
-            String sobf = clmap.getValue();
-            obf_cl.entrySet().forEach(omap -> {
-                String oobf = omap.getKey();
-                String srg = omap.getValue();
-                if (sobf.equals(oobf)) {
-                    new_cl.put(nms, srg);
-                    sb.append("CL: " + nms + " " + srg).append("\n");
-                }
-            });
-        });
+        spigot_cl.forEach((nms, sobf) -> obf_cl.forEach((oobf, srg) -> {
+            if (sobf.equals(oobf)) {
+                new_cl.put(nms, srg);
+                sb.append("CL: ").append(nms).append(" ").append(srg).append("\n");
+            }
+        }));
         System.out.println("CL数据合并完成");
         System.out.println("开始合并FD数据");
-        spigot_fd.entrySet().forEach(fdmap -> {
-            String nms = fdmap.getKey();
-            String sobf = fdmap.getValue();
-            obf_fd.entrySet().forEach(omap -> {
-                String oobf = omap.getKey();
-                String srg = omap.getValue();
-                if (sobf.equals(oobf)) {
-                    new_fd.put(nms, srg);
-                    sb.append("FD: " + nms + " " + srg).append("\n");
-                }
-            });
-        });
+        spigot_fd.forEach((nms, sobf) -> obf_fd.forEach((oobf, srg) -> {
+            if (sobf.equals(oobf)) {
+                new_fd.put(nms, srg);
+                sb.append("FD: ").append(nms).append(" ").append(srg).append("\n");
+            }
+        }));
         System.out.println("FD数据合并完成");
         System.out.println("开始合并MD数据");
-        spigot_md.entrySet().forEach(mdmap -> {
-            String nms = mdmap.getKey();
-            String sobf = mdmap.getValue();
-            obf_md.entrySet().forEach(omap -> {
-                String oobf = omap.getKey();
-                String srg = omap.getValue();
-                if (sobf.equals(oobf)) {
-                    new_md.put(nms, srg);
-                    sb.append("MD: " + nms + " " + srg).append("\n");
-                }
-            });
-        });
+        spigot_md.forEach((nms, sobf) -> obf_md.forEach((oobf, srg) -> {
+            if (sobf.equals(oobf)) {
+                new_md.put(nms, srg);
+                sb.append("MD: ").append(nms).append(" ").append(srg).append("\n");
+            }
+        }));
         System.out.println("MD数据合并完成");
 
         File file = new File("cache", "Spigot2Srg-1.16.3.srg");
