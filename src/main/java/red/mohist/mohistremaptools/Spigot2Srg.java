@@ -44,7 +44,7 @@ public class Spigot2Srg {
             String[] strings = s.split(":");
             String mcp = strings[0].replace("\"", "");
             String srg = strings[1].replace("\"", "");
-            oldmcp2srg_fd.put(mcp, srg);
+            oldmcp2srg_md.put(mcp, srg);
         }
 
         System.out.println("==========================================");
