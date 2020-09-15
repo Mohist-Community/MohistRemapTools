@@ -28,12 +28,11 @@ public class CraftBukkitPatches2MCP {
                 String mcp = strings[1];
 
                 String[] nmss = nms.split("/");
-                String[] mcps = mcp.split("/");
+                String mcps = mcp.replace("/", "-");
 
                 String nms_classname = nmss[nmss.length - 1];
-                String mcps_classname = mcps[mcps.length - 1];
                 // 存入map
-                cl.put(nms_classname, mcps_classname);
+                cl.put(nms_classname, mcps);
             }
         }
 
