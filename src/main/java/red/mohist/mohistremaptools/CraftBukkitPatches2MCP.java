@@ -18,7 +18,7 @@ public class CraftBukkitPatches2MCP {
     public static void main(String[] args) throws IOException {
         String str;
 
-        File map = new File("cache", "Spigot2Srg-1.16.3.srg");
+        File map = new File("cache", "Spigot2Mcp-1.16.3.srg");
         BufferedReader b = new BufferedReader(new InputStreamReader(FileUtil.openInputStream(map)));
         while ((str = b.readLine()) != null) {
             if (str.startsWith("CL: ") && !str.contains("$")) {
@@ -40,7 +40,7 @@ public class CraftBukkitPatches2MCP {
         StringBuilder sb = new StringBuilder();
         cl.forEach((key, value) -> sb.append(key).append(" - ").append(value).append("\n"));
         File file = new File("cache", "cb2mcp_patches.srg");
-        Main.writeByteArrayToFile(file, sb);
+        Spigot2Mcp.writeByteArrayToFile(file, sb);
         System.out.println("成功保存" + cl.size() + "条数据");
 
         // rename

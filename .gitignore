@@ -11,3 +11,5 @@
 /.gradle
 /run
 /out
+/cache
+/nms-patches

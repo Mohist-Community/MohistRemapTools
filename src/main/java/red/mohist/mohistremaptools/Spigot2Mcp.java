@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Main {
+public class Spigot2Mcp {
 
     public static Map<String, String> spigot_cl = new ConcurrentHashMap<>();
     public static Map<String, String> spigot_fd = new ConcurrentHashMap<>();
@@ -87,31 +87,31 @@ public class Main {
         System.out.println("==========================================");
         System.out.println("开始合并CL数据");
         StringBuilder sb = new StringBuilder();
-        spigot_cl.forEach((nms, sobf) -> obf_cl.forEach((oobf, srg) -> {
+        spigot_cl.forEach((nms, sobf) -> obf_cl.forEach((oobf, mcp) -> {
             if (sobf.equals(oobf)) {
-                new_cl.put(nms, srg);
-                sb.append("CL: ").append(nms).append(" ").append(srg).append("\n");
+                new_cl.put(nms, mcp);
+                sb.append("CL: ").append(nms).append(" ").append(mcp).append("\n");
             }
         }));
         System.out.println("CL数据合并完成");
         System.out.println("开始合并FD数据");
-        spigot_fd.forEach((nms, sobf) -> obf_fd.forEach((oobf, srg) -> {
+        spigot_fd.forEach((nms, sobf) -> obf_fd.forEach((oobf, mcp) -> {
             if (sobf.equals(oobf)) {
-                new_fd.put(nms, srg);
-                sb.append("FD: ").append(nms).append(" ").append(srg).append("\n");
+                new_fd.put(nms, mcp);
+                sb.append("FD: ").append(nms).append(" ").append(mcp).append("\n");
             }
         }));
         System.out.println("FD数据合并完成");
         System.out.println("开始合并MD数据");
-        spigot_md.forEach((nms, sobf) -> obf_md.forEach((oobf, srg) -> {
+        spigot_md.forEach((nms, sobf) -> obf_md.forEach((oobf, mcp) -> {
             if (sobf.equals(oobf)) {
-                new_md.put(nms, srg);
-                sb.append("MD: ").append(nms).append(" ").append(srg).append("\n");
+                new_md.put(nms, mcp);
+                sb.append("MD: ").append(nms).append(" ").append(mcp).append("\n");
             }
         }));
         System.out.println("MD数据合并完成");
 
-        File file = new File("cache", "Spigot2Srg-1.16.3.srg");
+        File file = new File("cache", "Spigot2Mcp-1.16.3.srg");
         writeByteArrayToFile(file, sb);
     }
 
